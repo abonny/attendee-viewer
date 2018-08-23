@@ -1,11 +1,13 @@
 ---
-
 applications:
 - name: attendee-viewer
-  buildpack: java_buildpack
+  buildpacks:    
+    - java_buildpack
+  path: ./build/libs/attendee-viewer.jar
   disk_quota: 1G
   instances: 1
-  memory: 750M  
+  memory: 750M
+  random-route: true
   services:
   - configuration-depot-service
   - eureka-service
